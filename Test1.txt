@@ -1,0 +1,37 @@
+debut 
+
+#test sans fautes pour tester les procédures Si, Tantque, Repeter,Ecrire, lire
+
+c=2;
+a=3;
+b=0;
+
+si(a==2)
+lire(b);
+sinonsi (a==3)
+ecrire("coucou");
+sinon
+b=4;
+finsi;
+
+tantque (a<5)
+a=a+1;
+b=b+1;
+fintantque;
+
+repeter 
+c=c*2;
+a=a+1;
+jusqua (c==8);
+
+
+fin
+
+# au final :
+# a= 5
+# b= 2 
+# c= 8
+
+
+
+

@@ -1,0 +1,23 @@
+debut
+# test des procédures pour et switch et lire (sans fautes)
+a=3;
+d=0;
+e=2;
+
+pour(i=0;i<=2;i=i+1) 
+d=d+1;
+e=e-1;
+finpour;
+
+
+lire(n);
+
+switch (n) {
+case 1: n=n+1;a=8;break;
+case 2: n=n+2;break;
+default: break;
+};
+
+fin
+
+# valeur : a=8 si n=1 , sinon 3; d=3; i=3;e=-1 n varie selon utilisateur
