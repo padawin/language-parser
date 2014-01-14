@@ -166,9 +166,9 @@ void LecteurPhraseAvecTable::instSi() { //si (<expBool> ) <seqInst> {sinonsi (<e
 		erreur("<instSi>");
 }
 
-////////////////////////////////////////////////////////////////////////////////      
+////////////////////////////////////////////////////////////////////////////////
 
-void LecteurPhraseAvecTable::instTq() { //tantque ( <expBool> ) <seqInst> fintantque 
+void LecteurPhraseAvecTable::instTq() { //tantque ( <expBool> ) <seqInst> fintantque
 
 	sauterSymCour("tantque");
 
@@ -185,7 +185,7 @@ void LecteurPhraseAvecTable::instTq() { //tantque ( <expBool> ) <seqInst> fintan
 		erreur("<instTq>");
 }
 
-////////////////////////////////////////////////////////////////////////////////    
+////////////////////////////////////////////////////////////////////////////////
 void LecteurPhraseAvecTable::instRepeter() {// repeter <seqInst> jusqua ( <expBool> )
 	sauterSymCour("repeter");
 	seqInst();
@@ -200,7 +200,7 @@ void LecteurPhraseAvecTable::instRepeter() {// repeter <seqInst> jusqua ( <expBo
 		erreur("<instRepeter>");
 
 }
-////////////////////////////////////////////////////////////////////////////////    
+////////////////////////////////////////////////////////////////////////////////
 void LecteurPhraseAvecTable::instLire() { // lire ( <variable> )
 
 	sauterSymCour("lire");
@@ -218,7 +218,7 @@ void LecteurPhraseAvecTable::instLire() { // lire ( <variable> )
 
 }
 
-////////////////////////////////////////////////////////////////////////////////    
+////////////////////////////////////////////////////////////////////////////////
 void LecteurPhraseAvecTable::instEcrire() { // ecrire ( <expression> | <chaine> )
 
 
@@ -258,7 +258,7 @@ void LecteurPhraseAvecTable::opBool() {
 		erreur("<opBool>");
 
 }
-//////////////////////////////////////////////////////////////////////////////// 
+////////////////////////////////////////////////////////////////////////////////
 void LecteurPhraseAvecTable::relation() {
 	// <relation> ::= <expression> { <opRel> <expression>}
 
@@ -272,9 +272,9 @@ void LecteurPhraseAvecTable::relation() {
 
 }
 
-////////////////////////////////////////////////////////////////////////////////   
+////////////////////////////////////////////////////////////////////////////////
 void LecteurPhraseAvecTable::opRel() {
-	// <opRel> ::= == | != | < | <= | > | >= 
+	// <opRel> ::= == | != | < | <= | > | >=
 
 	if (ls.getSymCour()=="==" || ls.getSymCour()=="!=" || ls.getSymCour()=="<"
 			|| ls.getSymCour()=="<=" || ls.getSymCour()==">" || ls.getSymCour()
@@ -316,7 +316,7 @@ void LecteurPhraseAvecTable::opMult() {
 
 }
 
-////////////////////////////////////////////////////////////////////////////////   
+////////////////////////////////////////////////////////////////////////////////
 void LecteurPhraseAvecTable::opUnaire() {
 	// <opUnaire> ::= - | non
 
@@ -327,8 +327,8 @@ void LecteurPhraseAvecTable::opUnaire() {
 		erreur("<opUnaire>");
 
 }
-////////////////////////////////////////////////////////////////////////////////   
-void LecteurPhraseAvecTable::instPour() { 
+////////////////////////////////////////////////////////////////////////////////
+void LecteurPhraseAvecTable::instPour() {
 
 sauterSymCour("pour");
 
@@ -344,13 +344,13 @@ sauterSymCour("pour");
 	sauterSymCour("finpour");
 
 
-	
+
 }
-////////////////////////////////////////////////////////////////////////////////   
-void LecteurPhraseAvecTable::instSwitch() { 
+////////////////////////////////////////////////////////////////////////////////
+void LecteurPhraseAvecTable::instSwitch() {
 sauterSymCour("switch");
-	
-	
+
+
 		sauterSymCour("(");
 		testerSymCour("<VARIABLE>");
 		ts.chercheAjoute(ls.getSymCour());
@@ -358,20 +358,20 @@ sauterSymCour("switch");
 		sauterSymCour(")");
 		sauterSymCour("{");
 		while (ls.getSymCour() == "case") {
-		
+
 			sauterSymCour("case");
-			
+
 			testerSymCour("<ENTIER>"); // test si entier
 			ts.chercheAjoute(ls.getSymCour()); // ajoute à la table des symboles si inexistant de dedans
 			ls.suivant();
-			
+
 			sauterSymCour(":");
 			seqInst();
-			
+
 			sauterSymCour("break");
 			sauterSymCour(";");
 		}
-	
+
 		if(ls.getSymCour() == "default") {
 			sauterSymCour("default");
 			sauterSymCour(":");

@@ -67,7 +67,7 @@ Noeud* LecteurPhraseAvecArbre::inst() {
 		return affectation();
 	else if (ls.getSymCour()=="ecrire")
 		return instEcrire();
-	
+
 	else if (ls.getSymCour()=="lire")
 	return instLire();
 	else if (ls.getSymCour()=="pour")
@@ -203,7 +203,7 @@ Noeud* LecteurPhraseAvecArbre::expression() {
 			return operateur;
 
 		}
-		//////////////////////////////////////////////////	
+		//////////////////////////////////////////////////
 		Noeud* LecteurPhraseAvecArbre::expBool() { // <expBool> ::= <relation> {<opBool> <relation> }
 
 			Noeud* expBool=relation();
@@ -243,7 +243,7 @@ Noeud* LecteurPhraseAvecArbre::expression() {
 
 		///////////////////////////////////////////
 		Symbole LecteurPhraseAvecArbre::opRel() {
-			// <opRel> ::= == | != | < | <= | > | >= 
+			// <opRel> ::= == | != | < | <= | > | >=
 
 			Symbole operateur;
 			if (ls.getSymCour()=="=="|| ls.getSymCour()=="!="
@@ -307,7 +307,7 @@ Noeud* LecteurPhraseAvecArbre::expression() {
 
 		///////////////////////////////////////////
 		Noeud* LecteurPhraseAvecArbre::instTq() {
-			// tantque ( <expBool> ) <seqInst> fintantque 
+			// tantque ( <expBool> ) <seqInst> fintantque
 
 
 			sauterSymCour("tantque");
@@ -354,48 +354,48 @@ Noeud* LecteurPhraseAvecArbre::expression() {
 			sauterSymCour("(");
 			Noeud* exp=NULL;
 			Noeud* ch=NULL;
-			if (ls.getSymCour() == "<CHAINE>") { //  on regarde si chaine 
-				
-				ch=ts.chercheAjoute(ls.getSymCour()); 
+			if (ls.getSymCour() == "<CHAINE>") { //  on regarde si chaine
+
+				ch=ts.chercheAjoute(ls.getSymCour());
 				ls.suivant();
 			}
-	
+
 			else // ou expression
 				exp=expression();
-			
+
 				sauterSymCour(")");
 				NoeudInstEcrire* instE= new NoeudInstEcrire(exp,ch);
 				return instE;
-			
+
 		}
 
 		///////////////////////////////////////////
 		Noeud* LecteurPhraseAvecArbre::instPour() {
 			//  pour (affectation ; expBool ; affectation) <seqinst> finpour;
-			
-			
+
+
 			sauterSymCour("pour");
 			sauterSymCour("(");
 			Noeud* aff=affectation();
 			sauterSymCour(";");
-			Noeud* cond=expBool();	
+			Noeud* cond=expBool();
 			sauterSymCour(";");
 			Noeud* incr= affectation();
-			sauterSymCour(")");	
-			
+			sauterSymCour(")");
+
 			Noeud* inst = seqInst();
-			
+
 			sauterSymCour("finpour");
-			
-			
-			return new NoeudInstPour(aff,cond,incr,inst);	
+
+
+			return new NoeudInstPour(aff,cond,incr,inst);
 		}
-		
+
 		///////////////////////////////////////////
 		Noeud* LecteurPhraseAvecArbre::instSwitch() {
 		// switch(variable) { case constante: <seqinst> break;};
-		
-		
+
+
 		sauterSymCour("selon");
 		sauterSymCour("(");
 		Noeud* variable= NULL;
@@ -403,9 +403,9 @@ Noeud* LecteurPhraseAvecArbre::expression() {
 		variable= ts.chercheAjoute(ls.getSymCour()); // ajoute la variable à la table des symboles si inexistant dedans
 		ls.suivant();
 		sauterSymCour(")");
-		
+
 		NoeudInstSwitch* instS= new NoeudInstSwitch(variable);
-		
+
 		sauterSymCour("{");
 		while (ls.getSymCour() == "cas") {
 			sauterSymCour("cas");
@@ -413,28 +413,28 @@ Noeud* LecteurPhraseAvecArbre::expression() {
 			Noeud* num= facteur();
 			sauterSymCour(":");
 			Noeud* inst= seqInst();
-			instS->ajouteInstruction(inst,num); // ajout d'une instruction à chaque tableau 
+			instS->ajouteInstruction(inst,num); // ajout d'une instruction à chaque tableau
 			sauterSymCour("stop");
 			sauterSymCour(";");
 			}
-				// On suppose qu'il y a tjs un break.. 
-			
-			
+				// On suppose qu'il y a tjs un break..
+
+
 		if (ls.getSymCour() == "defaut")
 		{
 			sauterSymCour("defaut");
 			sauterSymCour(":");
 			if(ls.getSymCour() != "stop")
-			{	
+			{
 				Noeud* inst= seqInst();
 				instS->ajouteInstruction(inst,NULL); // si default pas de numéro
 			}
 			else
-				instS->ajouteInstruction(NULL,NULL); // si default et pas d'instruction 
+				instS->ajouteInstruction(NULL,NULL); // si default et pas d'instruction
 			sauterSymCour("stop");
 			sauterSymCour(";");
-		}	
-		
+		}
+
 		sauterSymCour("}");
 		return instS;
 		}
