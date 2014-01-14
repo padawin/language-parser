@@ -11,4 +11,4 @@ Because there is a lot to do here...
 - Clean the code
 - Make sure the program can parse any "home made" language, as long
 	as a language description is provided. Probably adapters will be needed.
-
+- Fix the warnings!!!! (which goes with the clean actually... but hell...)
