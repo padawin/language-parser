@@ -2,7 +2,8 @@
 #include "Symbole.h"
 #include "SymboleValue.h"
 #include <typeinfo>
-#include "string.h"
+#include <string.h>
+#include <stdlib.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 // NoeudSeqInst
