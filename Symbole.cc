@@ -23,12 +23,12 @@ Symbole::Symbole(string s) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-Symbole::Symbole(char * ch) {
+Symbole::Symbole(const char * ch) {
 	Symbole(string(ch));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-bool Symbole::operator == (char *ch) {
+bool Symbole::operator == (const char *ch) {
 	string s(ch);
 	return  this->chaine==s                              ||
 	       (this->categorie==VARIABLE     && s=="<VARIABLE>") ||

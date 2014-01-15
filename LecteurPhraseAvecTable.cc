@@ -108,7 +108,7 @@ void LecteurPhraseAvecTable::facteur() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-void LecteurPhraseAvecTable::testerSymCour(char * ch) {
+void LecteurPhraseAvecTable::testerSymCour(const char * ch) {
 	if (ls.getSymCour() != ch) {
 		cout << endl << "-------- Erreur ligne " << ls.getLigne()
 				<< " - Colonne " << ls.getColonne() << endl << "   Attendu : "
@@ -119,13 +119,13 @@ void LecteurPhraseAvecTable::testerSymCour(char * ch) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-void LecteurPhraseAvecTable::sauterSymCour(char * ch) {
+void LecteurPhraseAvecTable::sauterSymCour(const char * ch) {
 	testerSymCour(ch);
 	ls.suivant();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-void LecteurPhraseAvecTable::erreur(char mess[]) {
+void LecteurPhraseAvecTable::erreur(const char mess[]) {
 	cout << endl << "-------- Erreur ligne " << ls.getLigne() << " - Colonne "
 			<< ls.getColonne() << endl << "   Attendu : " << mess << endl
 			<< "   Trouve  : " << ls.getSymCour() << endl << endl;

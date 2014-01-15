@@ -143,7 +143,7 @@ Noeud* LecteurPhraseAvecArbre::expression() {
 		}
 
 		////////////////////////////////////////////////////////////////////////////////
-		void LecteurPhraseAvecArbre::testerSymCour(char * ch) {
+		void LecteurPhraseAvecArbre::testerSymCour(const char * ch) {
 			if (ls.getSymCour() != ch) {
 				cout << endl << "-------- Erreur ligne " << ls.getLigne()
 						<< " - Colonne " << ls.getColonne() << endl
@@ -154,13 +154,13 @@ Noeud* LecteurPhraseAvecArbre::expression() {
 		}
 
 		////////////////////////////////////////////////////////////////////////////////
-		void LecteurPhraseAvecArbre::sauterSymCour(char * ch) {
+		void LecteurPhraseAvecArbre::sauterSymCour(const char * ch) {
 			testerSymCour(ch);
 			ls.suivant();
 		}
 
 		////////////////////////////////////////////////////////////////////////////////
-		void LecteurPhraseAvecArbre::erreur(char mess[]) {
+		void LecteurPhraseAvecArbre::erreur(const char mess[]) {
 			cout << endl << "-------- Erreur ligne " << ls.getLigne()
 					<< " - Colonne " << ls.getColonne() << endl
 					<< "   Attendu : " << mess << endl << "   Trouve  : "

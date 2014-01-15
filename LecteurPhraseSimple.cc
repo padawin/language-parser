@@ -118,7 +118,7 @@ void LecteurPhraseSimple::facteur() {
  }
  */
 ////////////////////////////////////////////////////////////////////////////////
-void LecteurPhraseSimple::testerSymCour(char * ch) {
+void LecteurPhraseSimple::testerSymCour(const char * ch) {
 	if (ls.getSymCour() != ch) {
 		cout << endl << "-------- Erreur ligne " << ls.getLigne()
 				<< " - Colonne " << ls.getColonne() << endl << "   Attendu : "
@@ -129,13 +129,13 @@ void LecteurPhraseSimple::testerSymCour(char * ch) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-void LecteurPhraseSimple::sauterSymCour(char * ch) {
+void LecteurPhraseSimple::sauterSymCour(const char * ch) {
 	testerSymCour(ch);
 	ls.suivant();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-void LecteurPhraseSimple::erreur(char mess[]) {
+void LecteurPhraseSimple::erreur(const char mess[]) {
 	cout << endl << "-------- Erreur ligne " << ls.getLigne() << " - Colonne "
 			<< ls.getColonne() << endl << "   Attendu : " << mess << endl
 			<< "   Trouve  : " << ls.getSymCour() << endl << endl;

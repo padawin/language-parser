@@ -12,9 +12,9 @@ class Symbole {
 public:
 	enum categorieSymbole { MOTCLE, VARIABLE, ENTIER, INDEFINI, FINDEFICHIER, CHAINE };
 	Symbole(string s=string("")); // construit le symbole à partir de la chaine (string) ch lue par le lecteur de symbole dans un fichier
-	Symbole(char *ch);             // construit le symbole à partir d'une chaine (char*) passée en paramètre
-	bool operator == (char * ch) ; // pour tester l'égalité entre le symbole et une chaîne
-	inline bool operator != (char * ch) { return ! (*this == ch); } // pour tester la différence...
+	Symbole(const char *ch);             // construit le symbole à partir d'une chaine (char*) passée en paramètre
+	bool operator == (const char * ch) ; // pour tester l'égalité entre le symbole et une chaîne
+	inline bool operator != (const char * ch) { return ! (*this == ch); } // pour tester la différence...
 	inline string getChaine()           { return this->chaine;}     // accesseur
 
 	friend ostream & operator <<(ostream & cout, Symbole symb);     // fonction amie pour pouvoir afficher un symbole sur cout

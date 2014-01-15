@@ -54,10 +54,10 @@ private:
 	Noeud* instPour(); // pour
 	Noeud* instSwitch(); //
 	// outils pour se simplifier l'analyse syntaxique
-	void testerSymCour(char *ch); // si symbole courant != ch, erreur : on arrete le programme, sinon rien
-	void sauterSymCour(char *ch); // si symbole courant == ch, on passe au symbole suivant, sinon erreur : on arrete
-	void erreur(char mess[]); // affiche les message d'erreur mess et arrete le programme
-	
+	void testerSymCour(const char *ch); // si symbole courant != ch, erreur : on arrete le programme, sinon rien
+	void sauterSymCour(const char *ch); // si symbole courant == ch, on passe au symbole suivant, sinon erreur : on arrete
+	void erreur(const char mess[]); // affiche les message d'erreur mess et arrete le programme
+
 };
 
 #endif /* LECTEURPHRASEAVECARBRE_H_ */
