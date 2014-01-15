@@ -33,16 +33,16 @@ private:
         void expBool();     // <expBool> ::= <relation> {<opBool> <relation> }
         void opBool();      // <opBool> ::= et | ou
         void relation();    // <relation> ::= <expression> { <opRel> <expression>}
-        void opRel();       // <opRel> ::= == | != | < | <= | > | >= 
+        void opRel();       // <opRel> ::= == | != | < | <= | > | >=
         void opUnaire();    // <opUnaire> ::= - | non
         void instSi();      // si (<expBool> ) <seqInst> {sinonsi (<expBool>) <seqInst> }
            					//	[sinon <seqInst> ] finsi
-        void instTq();      // tantque ( <expBool> ) <seqInst> fintantque 
+        void instTq();      // tantque ( <expBool> ) <seqInst> fintantque
         void instRepeter(); // repeter <seqInst> jusqua ( <expBool> )
         void instLire();	// lire ( <variable> )
         void instEcrire();	// ecrire ( <expression> | <chaine> )
         void instPour() ;
-        void instSwitch(); 
+        void instSwitch();
         // outils pour se simplifier l'analyse syntaxique
         void testerSymCour (char *ch);  // si symbole courant != ch, erreur : on arrete le programme, sinon rien
         void sauterSymCour (char *ch);  // si symbole courant == ch, on passe au symbole suivant, sinon erreur : on arrete

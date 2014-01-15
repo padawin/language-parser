@@ -13,12 +13,12 @@ Symbole::Symbole(string s) {
 	else if (isdigit(s[0])) this->categorie=ENTIER;
     else if (isMotCle(s))   this->categorie=MOTCLE;
 	else if (isalpha(s[0])) this->categorie=VARIABLE;
-	else if (s[0]=='"')     
+	else if (s[0]=='"')
 							{
 							this->categorie=CHAINE;
 							//chaine=chaine.substr(1,chaine.size()-2);
 							}
-			
+
 	else                    this->categorie=INDEFINI;
 }
 

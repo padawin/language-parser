@@ -17,7 +17,7 @@ public:
 	inline bool operator != (char * ch) { return ! (*this == ch); } // pour tester la différence...
 	inline string getChaine()           { return this->chaine;}     // accesseur
 
-	friend ostream & operator <<(ostream & cout, Symbole symb);     // fonction amie pour pouvoir afficher un symbole sur cout 
+	friend ostream & operator <<(ostream & cout, Symbole symb);     // fonction amie pour pouvoir afficher un symbole sur cout
 
 private:
 	string           chaine;              // chaine du symbole

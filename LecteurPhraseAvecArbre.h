@@ -18,7 +18,7 @@ public:
 
 	inline TableSymboles getTs() {
 		return ts;
-	} // accesseur	
+	} // accesseur
 	inline Noeud* getArbre() {
 		return arbre;
 	} // accesseur
@@ -36,22 +36,22 @@ private:
 	Noeud* affectation(); // <affectation> ::= <variable> = <expression>
 	Noeud* expression(); //  <expression> ::= <facteur> { <opBinaire> <facteur> }
 	Noeud* facteur(); //     <facteur> ::= <entier>  |  <variable>  |  - <facteur>  |  ( <expression> )
-	Symbole opBinaire(); //   <opBinaire> ::= + | - | *  | / 
+	Symbole opBinaire(); //   <opBinaire> ::= + | - | *  | /
 	Noeud* terme(); // <terme> ::=<facteur> { <opMult> <facteur> }
 	Symbole opAdd(); // <opAdd> ::= + | -
 	Symbole opMult(); // <opMult> ::= * | /
 	Noeud* expBool(); // <expBool> ::= <relation> {<opBool> <relation> }
 	Symbole opBool(); // <opBool> ::= et | ou
 	Noeud* relation(); // <relation> ::= <expression> { <opRel> <expression>}
-	Symbole opRel(); // <opRel> ::= == | != | < | <= | > | >= 
+	Symbole opRel(); // <opRel> ::= == | != | < | <= | > | >=
 	Symbole opUnaire(); // <opUnaire> ::= - | non
 	Noeud* instSi(); // si (<expBool> ) <seqInst> {sinonsi (<expBool>) <seqInst> }
 					//	[sinon <seqInst> ] finsi
-	Noeud* instTq(); // tantque ( <expBool> ) <seqInst> fintantque 
+	Noeud* instTq(); // tantque ( <expBool> ) <seqInst> fintantque
 	Noeud* instRepeter(); // repeter <seqInst> jusqua ( <expBool> )
 	Noeud* instLire(); // lire ( <variable> )
 	Noeud* instEcrire(); // ecrire ( <expression> | <chaine> )
-	Noeud* instPour(); // pour 
+	Noeud* instPour(); // pour
 	Noeud* instSwitch(); //
 	// outils pour se simplifier l'analyse syntaxique
 	void testerSymCour(char *ch); // si symbole courant != ch, erreur : on arrete le programme, sinon rien
